@@ -9,7 +9,8 @@ const formulario = ref({
   nombre: '',
   email: '',
   servicio: '',
-  mensaje: ''
+  mensaje: '',
+  trampaBot: '' // <- Nuestro campo Honeypot
 })
 
 // Cuando la vista carga, revisamos si viene un servicio por la URL
@@ -19,18 +20,26 @@ onMounted(() => {
   }
 })
 
-// Función para simular el envío y aplicar validación básica (Punto 10)
+// Función para simular el envío y aplicar validación básica y antibot (Punto 10)
 const enviarMensaje = () => {
+  // 1. VALIDACIÓN CONTRA ROBOTS (Honeypot)
+  // Si el campo tiene texto, es un bot. Detenemos la ejecución silenciosamente.
+  if (formulario.value.trampaBot !== '') {
+    console.warn('Bloqueado: Intento de bot detectado.')
+    return 
+  }
+
+  // 2. VALIDACIÓN DEL LADO DEL CLIENTE (Campos vacíos)
   if (!formulario.value.nombre || !formulario.value.email || !formulario.value.servicio) {
     alert('Por favor, completa todos los campos obligatorios.')
     return
   }
   
-  // Aquí a futuro se conectaría con el backend/API
+  // Simulación de éxito
   alert(`¡Gracias ${formulario.value.nombre}! Hemos recibido tu solicitud para el servicio de: ${formulario.value.servicio}.`)
   
   // Limpiar el formulario
-  formulario.value = { nombre: '', email: '', servicio: '', mensaje: '' }
+  formulario.value = { nombre: '', email: '', servicio: '', mensaje: '', trampaBot: '' }
 }
 </script>
 
@@ -66,6 +75,12 @@ const enviarMensaje = () => {
         <div class="campo ancho-completo">
           <label for="mensaje">Mensaje (Opcional)</label>
           <textarea id="mensaje" v-model="formulario.mensaje" rows="4" placeholder="Cuéntanos más sobre tu negocio..."></textarea>
+        </div>
+
+        <!-- HONEYPOT: Campo oculto para atrapar bots -->
+        <div class="campo-oculto" aria-hidden="true">
+          <label for="telefono-secundario">Teléfono secundario (no llenar)</label>
+          <input type="text" id="telefono-secundario" v-model="formulario.trampaBot" tabindex="-1" autocomplete="off" />
         </div>
 
         <button type="submit" class="btn-enviar ancho-completo">Enviar Solicitud</button>
@@ -159,7 +174,13 @@ input:focus, select:focus, textarea:focus {
   background-color: #004494;
 }
 
-/* Diseño responsivo para celulares */
+/* Ocultamos el honeypot visualmente y para lectores de pantalla */
+.campo-oculto {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
 @media (max-width: 600px) {
   .form-grid {
     grid-template-columns: 1fr;
