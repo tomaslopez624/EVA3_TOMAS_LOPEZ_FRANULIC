@@ -1,44 +1,47 @@
-# EVA3FRONTEND-sercotec
+#Landing Page - Centro de Negocios Santiago (SERCOTEC)
 
-This template should help get you started developing with Vue 3 in Vite.
+Proyecto frontend desarrollado para responder a la necesidad de actualización del sitio web del Centro de Negocios Santiago de SERCOTEC. Esta aplicación ofrece una interfaz moderna, interactiva y centrada en el usuario para visualizar servicios de acompañamiento empresarial y gestión de negocios.
 
-## Recommended IDE Setup
+## Instalación y Despliegue
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Sigue estos pasos para levantar el entorno de desarrollo local:
 
-## Recommended Browser Setup
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tomaslopez624/EVA3_TOMAS_LOPEZ_FRANULIC
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+cd eva3frontend-sercotec
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
-```
 
-### Compile and Minify for Production
+El proyecto sigue una arquitectura modular basada en Vue 3:
 
-```sh
-npm run build
-```
+    /src/components/: Contiene los componentes reutilizables (Tarjetas, Carrusel, etc.).
 
-### Lint with [ESLint](https://eslint.org/)
+    /src/views/: Vistas principales de la aplicación (Inicio, Nosotros, Servicios, Contacto).
 
-```sh
-npm run lint
-```
+    /src/router/: Configuración de las rutas (Vue Router).
+
+    /src/assets/: Recursos estáticos (Imágenes comprimidas, CSS global, Logo).
+
+1. ServiceCard (Tarjeta de Servicio)
+
+Componente reutilizable que muestra la información de un servicio y redirige al formulario de contacto pre-llenando el campo correspondiente.
+
+    Props: titulo (String), descripcion (String), imagen (String).
+
+    Ejemplo de uso:
+ 
+<ServiceCard 
+  titulo="Asesoría Financiera" 
+  descripcion="Optimización de recursos y flujo de caja." 
+  imagen="/img/finanzas.jpg" 
+/>
+
+2. TestimonialCarousel (Carrusel de Testimonios)
+
+(En desarrollo: Componente responsivo para mostrar opiniones de clientes).
+📖 Guía de Buenas Prácticas
+
+(Sección en desarrollo: Aquí documentaremos nuestras convenciones de nomenclatura, uso de variables CSS y estrategias de accesibilidad/usabilidad implementadas en el proyecto).
+
