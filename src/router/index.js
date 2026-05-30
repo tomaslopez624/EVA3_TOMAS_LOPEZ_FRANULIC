@@ -12,8 +12,12 @@ const router = createRouter({
     {
       path: '/contacto',
       name: 'contacto',
-      // Esto carga la vista de contacto solo cuando el usuario hace clic (optimización)
       component: () => import('../views/ContactoView.vue')
+    },
+    {
+      path: '/preguntas',
+      name: 'preguntas',
+      component: () => import('../views/FaqView.vue')
     }
   ]
 })

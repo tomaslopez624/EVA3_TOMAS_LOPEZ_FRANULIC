@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "pregunta": "¿Los servicios del Centro de Negocios tienen algún costo?",
+    "respuesta": "No, todos nuestros servicios de asesoría, capacitación y acompañamiento son 100% gratuitos para emprendedores y empresas formalizadas."
+  },
+  {
+    "id": 2,
+    "pregunta": "¿Cuáles son los requisitos para recibir asesoría?",
+    "respuesta": "Debes ser mayor de 18 años y contar con una idea de negocio clara o una empresa ya formalizada ante el SII."
+  },
+  {
+    "id": 3,
+    "pregunta": "¿Atienden a empresas de cualquier rubro?",
+    "respuesta": "Sí, nuestros asesores son multisectoriales y atienden comercios, servicios, manufactura, tecnología, entre otros."
+  }
+]
