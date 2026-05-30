@@ -24,24 +24,25 @@ El proyecto sigue una arquitectura modular basada en Vue 3:
 
     /src/assets/: Recursos estáticos (Imágenes comprimidas, CSS global, Logo).
 
-1. ServiceCard (Tarjeta de Servicio)
+* **Componentes (`src/components/`):**
+  * `ServiceCard.vue`: Tarjeta reutilizable que expone los servicios y enlaza dinámicamente al formulario.
+  * `TestimonialCarousel.vue`: Carrusel interactivo y accesible que muestra testimonios de clientes.
+* **Vistas (`src/views/`):**
+  * `HomeView.vue`: Página de inicio que integra los servicios y el carrusel.
+  * `ContactoView.vue`: Formulario de contacto inteligente que lee los parámetros de la URL.
+  * `FaqView.vue`: Vista que consume y renderiza datos de forma asíncrona.
+* **Gestión de Rutas (`src/router/`):** Configuración de Vue Router para navegación sin recargas.
+* **Consumo de API (`public/api/`):** Simulación de base de datos mediante un archivo `preguntas.json` consumido a través de peticiones HTTP `fetch`.
 
-Componente reutilizable que muestra la información de un servicio y redirige al formulario de contacto pre-llenando el campo correspondiente.
+## Buenas Prácticas de Desarrollo Aplicadas
+* **Componentización:** Separación de la interfaz en piezas independientes, reutilizables y fáciles de mantener.
+* **Accesibilidad (a11y):** Implementación de atributos `aria` y roles semánticos en componentes interactivos (como el carrusel) para garantizar la compatibilidad con lectores de pantalla.
+* **Diseño Responsivo:** Uso de CSS y Media Queries para adaptar la interfaz a dispositivos móviles y pantallas de escritorio.
+* **Reactividad y Estado:** Utilización de la Composition API de Vue (`ref`, `onMounted`) para gestionar los datos en tiempo real y el ciclo de vida de las vistas.
 
-    Props: titulo (String), descripcion (String), imagen (String).
+## Instrucciones de Ejecución Local
 
-    Ejemplo de uso:
- 
-<ServiceCard 
-  titulo="Asesoría Financiera" 
-  descripcion="Optimización de recursos y flujo de caja." 
-  imagen="/img/finanzas.jpg" 
-/>
-
-2. TestimonialCarousel (Carrusel de Testimonios)
-
-(En desarrollo: Componente responsivo para mostrar opiniones de clientes).
-📖 Guía de Buenas Prácticas
-
-(Sección en desarrollo: Aquí documentaremos nuestras convenciones de nomenclatura, uso de variables CSS y estrategias de accesibilidad/usabilidad implementadas en el proyecto).
+1. Instalar las dependencias del proyecto:
+```bash
+   npm install.
 
